@@ -23,7 +23,6 @@ def group_anagrams(a)
   hash = {}
 
   a.each do |string|
-    #temp_array << string.chars.sort.join
 
     string = string.downcase
     sorted_string = string.chars.sort.join
@@ -34,6 +33,13 @@ def group_anagrams(a)
       hash[sorted_string] = string
     end
   end
+
+  temp_array = hash.map {|key,value| value}
+
+  temp_array.each_with_index do |string,index|
+   temp_array[index] = string.split(" ")
+  end
+
 end
 
 # Part 2
