@@ -33,6 +33,7 @@ def group_anagrams(a)
     else
       hash[sorted_string] = string
     end
+  end
 end
 
 # Part 2
@@ -110,6 +111,7 @@ class Book
   def formatted_price
     cents = self.price.modulo(1).round(2)
     dollars = (self.price - cents).to_i
+    cents = (cents*100).to_i
     
     if (dollars == 1)
       s_dollar = "dollar"
@@ -117,18 +119,18 @@ class Book
       s_dollar = "dollars"
     end
     
-    if (cents == 0.01)
+    if (cents == 1)
       s_cent = "cent"
     else
       s_cent = "cents"
     end
     
     if (cents.zero?)
-      puts dollars.to_s + " " + s_dollar + " only"
+      return dollars.to_s + " " + s_dollar + " only"
     else if (dollars.zero?)
-      puts cents.to_s + " " + s_cent + " only"
+      return cents.to_s + " " + s_cent + " only"
     else 
-      puts dollars.to_s + " " + s_dollar + " and " + cents.to_s + " " + s_cent + " only"
+      return dollars.to_s + " " + s_dollar + " and " + cents.to_s + " " + s_cent + " only"
     end
     end
     
