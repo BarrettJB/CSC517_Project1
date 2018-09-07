@@ -26,15 +26,32 @@ end
 # Part 2
 
 def palindrome?(s)
-  # ADD YOUR CODE HERE
+  s.downcase == s.reverse.downcase
 end
 
 def remove_and_append_vowels(s)
-  # ADD YOUR CODE HERE
+  append = ""
+
+  s.scan(/[aeiou]/i) do |char|
+    append += char
+  end
+
+  s = s.gsub(/[aeiou]/i,"")
+  s += append
 end
 
 def highest_frequency_word(s)
-  # ADD YOUR CODE HERE
+  hash = {}
+
+  s.downcase.split(" ").each do |word|
+    if(hash.has_key?(word))
+      hash[word] += 1
+    else
+      hash[word] = 1
+    end
+  end
+
+  hash.key(hash.values.max)
 end
 
 # Part 3
