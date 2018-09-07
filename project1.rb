@@ -20,7 +20,19 @@ def two_sum?(a,n)
 end
 
 def group_anagrams(a)
-  #Try something with sorting the strings.
+  hash = {}
+
+  a.each do |string|
+    #temp_array << string.chars.sort.join
+
+    string = string.downcase
+    sorted_string = string.chars.sort.join
+
+    if(hash.has_key?(sorted_string)) then
+      hash[sorted_string] +=  (" " + string)
+    else
+      hash[sorted_string] = string
+    end
 end
 
 # Part 2
@@ -40,7 +52,7 @@ end
 # Part 3
 
 class Book
-
+  
   def initialize(name, price)
     self.name = name
     self.price = price
@@ -107,3 +119,4 @@ class Book
     
   
 end
+
